@@ -84,6 +84,7 @@ namespace CLRNetFrameworkTemplate {
 			// 
 			// txbResult
 			// 
+			this->txbResult->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->txbResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->txbResult->Location = System::Drawing::Point(12, 159);
@@ -153,7 +154,8 @@ namespace CLRNetFrameworkTemplate {
 
 	private: System::Void txbNumber_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		//We only allow backspace/ other control symbols / digits
-		if (!iscntrl(e->KeyChar) && !isdigit(e->KeyChar))
+		if (!iscntrl((unsigned char)e->KeyChar) &&
+			!isdigit((unsigned char)e->KeyChar))
 		{
 			e->Handled = true;
 		}
