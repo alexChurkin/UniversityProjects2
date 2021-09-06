@@ -1,9 +1,8 @@
 #pragma once
 #include <ctype.h>
-#include "convert.h"
 #include <iostream>
 
-typedef unsigned long long ll;
+typedef long long ll;
 
 namespace CLRNetFrameworkTemplate {
 
@@ -168,10 +167,10 @@ namespace CLRNetFrameworkTemplate {
 		}
 		//Else
 
-		//Getting text from txbNumber, converting to uint32
-		unsigned long long number = StringToUInt32(txbNumber->Text);
+		//Getting text from txbNumber, converting to long long
+		ll number = Convert::ToInt64(txbNumber->Text);
 		//Counting, converting result to String and showing it
-		txbResult->Text = UInt32ToString(5 * number);
+		txbResult->Text = Convert::ToString(5 * number);
 	}
 	};
 }
