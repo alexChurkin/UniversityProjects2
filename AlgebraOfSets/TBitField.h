@@ -57,5 +57,6 @@ public:
 		for (int i = 0; i < size; i++) {
 			mem[i] = tmp.mem[i];
 		}
+		return *this;
 	}
 };

@@ -121,11 +121,11 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CLRNetFrameworkTemplate\TBitField.h" />
-    <ClInclude Include="..\CLRNetFrameworkTemplate\TSet.h" />
     <ClInclude Include="AOSForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TBitField.h" />
+    <ClInclude Include="TSet.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AOSForm.resx">
