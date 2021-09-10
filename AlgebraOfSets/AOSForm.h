@@ -185,6 +185,7 @@ namespace AlgebraOfSets {
 			this->txbN->Name = L"txbN";
 			this->txbN->Size = System::Drawing::Size(130, 48);
 			this->txbN->TabIndex = 7;
+			this->txbN->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->txbN->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AOSForm::txbN_KeyPress);
 			// 
 			// AOSForm
