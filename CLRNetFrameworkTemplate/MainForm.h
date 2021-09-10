@@ -14,24 +14,17 @@ namespace CLRNetFrameworkTemplate {
 	using namespace System::Drawing;
 	using namespace System::Text;
 
-	/// <summary>
-	/// —водка дл€ MainForm
-	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
 	public:
 		MainForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			
 		}
 
 	protected:
-		/// <summary>
 		/// ќсвободить все используемые ресурсы.
-		/// </summary>
 		~MainForm()
 		{
 			if (components)
@@ -51,16 +44,10 @@ namespace CLRNetFrameworkTemplate {
 
 
 	private:
-		/// <summary>
 		/// ќб€зательна€ переменна€ конструктора.
-		/// </summary>
 		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->txbNumber = (gcnew System::Windows::Forms::TextBox());
@@ -72,45 +59,47 @@ namespace CLRNetFrameworkTemplate {
 			// 
 			// txbNumber
 			// 
-			this->txbNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txbNumber->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->txbNumber->Location = System::Drawing::Point(12, 63);
 			this->txbNumber->MaxLength = 15;
 			this->txbNumber->Name = L"txbNumber";
-			this->txbNumber->Size = System::Drawing::Size(504, 39);
+			this->txbNumber->Size = System::Drawing::Size(504, 44);
 			this->txbNumber->TabIndex = 0;
+			this->txbNumber->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->txbNumber->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MainForm::txbNumber_KeyPress);
 			// 
 			// txbResult
 			// 
 			this->txbResult->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->txbResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txbResult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->txbResult->Location = System::Drawing::Point(12, 159);
+			this->txbResult->Location = System::Drawing::Point(12, 165);
 			this->txbResult->Name = L"txbResult";
 			this->txbResult->ReadOnly = true;
-			this->txbResult->Size = System::Drawing::Size(504, 39);
+			this->txbResult->Size = System::Drawing::Size(504, 44);
 			this->txbResult->TabIndex = 1;
+			this->txbResult->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(7, 29);
+			this->label1->Location = System::Drawing::Point(7, 31);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(170, 26);
+			this->label1->Size = System::Drawing::Size(193, 29);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"¬ведите число:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(7, 125);
+			this->label2->Location = System::Drawing::Point(7, 133);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(124, 26);
+			this->label2->Size = System::Drawing::Size(138, 29);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"–езультат:";
 			// 
@@ -118,7 +107,7 @@ namespace CLRNetFrameworkTemplate {
 			// 
 			this->btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->btn->Location = System::Drawing::Point(12, 223);
+			this->btn->Location = System::Drawing::Point(12, 234);
 			this->btn->Name = L"btn";
 			this->btn->Size = System::Drawing::Size(504, 74);
 			this->btn->TabIndex = 4;
@@ -131,7 +120,7 @@ namespace CLRNetFrameworkTemplate {
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->ClientSize = System::Drawing::Size(528, 309);
+			this->ClientSize = System::Drawing::Size(528, 320);
 			this->Controls->Add(this->btn);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -141,6 +130,7 @@ namespace CLRNetFrameworkTemplate {
 			this->MaximizeBox = false;
 			this->Name = L"MainForm";
 			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"”множатель";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
 			this->ResumeLayout(false);
@@ -153,12 +143,12 @@ namespace CLRNetFrameworkTemplate {
 
 	private: System::Void txbNumber_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		//We only allow backspace/ other control symbols / digits
-		if (!iscntrl((unsigned char)e->KeyChar) &&
-			!isdigit((unsigned char)e->KeyChar))
+		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar))
 		{
 			e->Handled = true;
 		}
 	}
+
 	private: System::Void btn_Click(System::Object^ sender, System::EventArgs^ e) {
 		//If txbNumber is empty
 		if (String::IsNullOrEmpty(txbNumber->Text)) {
