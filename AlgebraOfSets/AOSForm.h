@@ -243,7 +243,7 @@ namespace AlgebraOfSets {
 	private: System::Void txbN_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
 		{
-			bool v = !String::IsNullOrEmpty(txbN->Text);
+			bool v = !String::IsNullOrEmpty(txbN->Text) && Convert::ToInt32(txbN->Text) != 0;
 			if (v)
 				SetInputsVisible(v);
 		}
