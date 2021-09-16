@@ -16,8 +16,9 @@ namespace AlgebraOfSets {
 		AOSForm(void)
 		{
 			InitializeComponent();
-			//TODO: добавьте код конструктора
-
+			
+			SetInputsVisible(false);
+			SetupTransparency();
 		}
 
 	protected:
@@ -41,6 +42,7 @@ namespace AlgebraOfSets {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ txbN;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	protected:
 
@@ -48,7 +50,7 @@ namespace AlgebraOfSets {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -67,6 +69,8 @@ namespace AlgebraOfSets {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->txbN = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txbA
@@ -186,14 +190,26 @@ namespace AlgebraOfSets {
 			this->txbN->Size = System::Drawing::Size(130, 48);
 			this->txbN->TabIndex = 7;
 			this->txbN->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->txbN->TextChanged += gcnew System::EventHandler(this, &AOSForm::txbN_TextChanged);
+			this->txbN->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &AOSForm::txbN_KeyDown);
 			this->txbN->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AOSForm::txbN_KeyPress);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(878, 544);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 9;
+			this->pictureBox1->TabStop = false;
 			// 
 			// AOSForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(878, 544);
 			this->Controls->Add(this->label5);
@@ -205,34 +221,66 @@ namespace AlgebraOfSets {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txbA);
+			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"AOSForm";
 			this->ShowIcon = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Алгебра множеств";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-private: System::Void txbN_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar))
-	{
-		e->Handled = true;
+	private: System::Void txbN_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar))
+		{
+			e->Handled = true;
+		}
 	}
-}
-private: System::Void txbA_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
-	{
-		e->Handled = true;
+	private: System::Void txbN_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter)
+		{
+			bool v = !String::IsNullOrEmpty(txbN->Text);
+			if (v)
+				SetInputsVisible(v);
+		}
 	}
-}
-private: System::Void txbB_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
-	{
-		e->Handled = true;
+	private: System::Void txbN_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (String::IsNullOrEmpty(txbN->Text)) {
+			SetInputsVisible(false);
+		}
 	}
-}
-};
+	private: System::Void txbA_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
+		{
+			e->Handled = true;
+		}
+	}
+	private: System::Void txbB_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
+		{
+			e->Handled = true;
+		}
+	}
+
+	private: void SetupTransparency() {
+		label1->Parent = pictureBox1;
+		label2->Parent = pictureBox1;
+		label3->Parent = pictureBox1;
+		label4->Parent = pictureBox1;
+		label5->Parent = pictureBox1;
+	}
+
+	private: void SetInputsVisible(bool v) {
+		label2->Visible = v;
+		label3->Visible = v;
+		txbA->Visible = v;
+		txbB->Visible = v;
+		txbRes->Visible = v;
+		label4->Visible = v;
+	}
+	};
 }
