@@ -5,6 +5,7 @@ typedef unsigned int uint32;
 using namespace std;
 
 class TBitField {
+
 private:
 	unsigned int* mem;
 	int size;
@@ -19,7 +20,7 @@ private:
 	   для получения размера в битах.
 	*/
 	int GetNumberMem(int k) {
-		return (k / (8 * sizeof(*mem))) + 1;
+		return (k - 1) / (8 * sizeof(*mem));
 	}
 
 	/*
@@ -71,15 +72,17 @@ public:
 	/* ............................................... */
 
 	void Add(int k) {
-		int i = GetNumberMem(i);
+		int i = GetNumberMem(k);
 		mem[i] = mem[i] | (1 << GetBit(k));
 	}
 
 	string ToString(int U) {
 		string str;
 
+		//--> Идёт по mem[i]-м элементам
 		for (int i = 0; i < size; i++) {
-			for (int j = 4 * sizeof(*mem); j >= 0; j--) {
+			//<-- Идёт по битам внутри mem[i]-го эл-та
+			for (int j = 0; j < 8 * sizeof(*mem); j++) {
 				if ((mem[i] & (1 << j)) > 0) {
 					int k = i * (8 * sizeof(*mem)) + j + 1;
 
@@ -93,7 +96,7 @@ public:
 		return str;
 	}
 
-	TBitField operator∪(const TBitField& tmp) {
+	TBitField operatorV(const TBitField& tmp) {
 		TBitField res(size);
 
 		for (int i = 0; i < size; i++) {
@@ -102,7 +105,7 @@ public:
 		return res;
 	}
 
-	TBitField operator∩(const TBitField& tmp) {
+	TBitField operatorv(const TBitField& tmp) {
 		TBitField res(size);
 
 		for (int i = 0; i < size; i++) {

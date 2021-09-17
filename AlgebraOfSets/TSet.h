@@ -45,7 +45,7 @@ public:
 			throw "USize sizes should be equal";
 		}
 
-		TBitField tbNew = tb.operator∪(tmp.tb);
+		TBitField tbNew = tb.operatorV(tmp.tb);
 		TSet res(USize);
 		res.tb = tbNew;
 		return res;
@@ -56,7 +56,7 @@ public:
 			throw "USize sizes should be equal";
 		}
 
-		TBitField tbNew = tb.operator∩(tmp.tb);
+		TBitField tbNew = tb.operatorv(tmp.tb);
 		TSet res(USize);
 		res.tb = tbNew;
 		return res;
