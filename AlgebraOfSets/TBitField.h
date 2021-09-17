@@ -4,7 +4,6 @@ typedef unsigned int uint32;
 
 using namespace std;
 
-
 class TBitField {
 private:
 	unsigned int* mem;
@@ -94,7 +93,7 @@ public:
 		return str;
 	}
 
-	TBitField operator∪(const TBitField &tmp) {
+	TBitField operator∪(const TBitField& tmp) {
 		TBitField res(size);
 
 		for (int i = 0; i < size; i++) {

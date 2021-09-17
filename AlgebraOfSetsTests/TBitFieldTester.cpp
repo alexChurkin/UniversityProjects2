@@ -10,7 +10,7 @@ namespace AlgebraOfSetsTests
 	TEST_CLASS(TBitFieldTester)
 	{
 	public:
-		
+
 		TEST_METHOD(Test1)
 		{
 			int universe = 230, item = 229;
