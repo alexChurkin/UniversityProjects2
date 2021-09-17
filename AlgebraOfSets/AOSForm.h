@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace AlgebraOfSets {
 
@@ -249,7 +250,14 @@ namespace AlgebraOfSets {
 		}
 	}
 	private: System::Void txbN_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-		if (String::IsNullOrEmpty(txbN->Text)) {
+		bool isNIncorrect = true;
+		try {
+			isNIncorrect = Convert::ToInt32(txbN->Text) == 0;
+		}
+		catch(...) {
+		}
+
+		if (String::IsNullOrEmpty(txbN->Text) || isNIncorrect) {
 			SetInputsVisible(false);
 		}
 	}

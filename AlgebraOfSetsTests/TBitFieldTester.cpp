@@ -6,17 +6,24 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace AlgebraOfSetsTests
 {
+
 	TEST_CLASS(TBitFieldTester)
 	{
 	public:
 		
-		TEST_METHOD(Test01)
+		TEST_METHOD(Test1)
 		{
-			TBitField A(103);
+			int universe = 230, item = 229;
+
+			TBitField A(universe);
 			TBitField B(A);
 			TBitField C;
 			C = A;
-			Assert::IsTrue(true);
+
+			//Logger::WriteMessage("Hello!!!");
+
+			//std::string str = " hey";
+			//Convert::ToString(str.c_str());
 		}
 	};
 }

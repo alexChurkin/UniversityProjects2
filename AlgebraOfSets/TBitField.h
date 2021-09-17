@@ -1,5 +1,9 @@
-#pragma once
+п»ї#pragma once
+#include <string>
 typedef unsigned int uint32;
+
+using namespace std;
+
 
 class TBitField {
 private:
@@ -7,23 +11,28 @@ private:
 	int size;
 
 	/*
-	   Принимает: номер элемента подмножества k
-	   Возвращает: номер элемента массива i, в котором он хранится
+	   РџСЂРёРЅРёРјР°РµС‚: РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РїРѕРґРјРЅРѕР¶РµСЃС‚РІР° k
+	   Р’РѕР·РІСЂР°С‰Р°РµС‚: РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР° i, РІ РєРѕС‚РѕСЂРѕРј РѕРЅ С…СЂР°РЅРёС‚СЃСЏ
+
+	   sizeof(*mem) = sizeof(uint32) = 4
+
+	   sizeof(*mem) РІРѕР·РІСЂР°С‰Р°РµС‚ СЂР°Р·РјРµСЂ int РІ Р±Р°Р№С‚Р°С…; СѓРјРЅРѕР¶Р°РµРј РЅР° 4
+	   РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЂР°Р·РјРµСЂР° РІ Р±РёС‚Р°С….
 	*/
 	int GetNumberMem(int k) {
-
+		return (k / (8 * sizeof(*mem))) + 1;
 	}
 
 	/*
-	   Принимает: номер элемента подмножества k
-	   Возвращает: номер бита в элементе массива, в котором он хранится
+	   РџСЂРёРЅРёРјР°РµС‚: РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РїРѕРґРјРЅРѕР¶РµСЃС‚РІР° k
+	   Р’РѕР·РІСЂР°С‰Р°РµС‚: РЅРѕРјРµСЂ Р±РёС‚Р° РІ СЌР»РµРјРµРЅС‚Рµ РјР°СЃСЃРёРІР°, РІ РєРѕС‚РѕСЂРѕРј РѕРЅ С…СЂР°РЅРёС‚СЃСЏ
 	*/
 	int GetBit(int k) {
-		return (k - 1) % (8 * sizeof(uint32));
+		return (k - 1) % (8 * sizeof(*mem));
 	}
 
 public:
-	//Конструктор
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	TBitField(int n = 0) {
 		size = n / (8 * sizeof(*mem)) + 1;
 		mem = new uint32[size];
@@ -32,12 +41,12 @@ public:
 		}
 	}
 
-	//Деструктор
+	//Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	~TBitField() {
 		delete[] mem;
 	}
 
-	//Конструктор копирования
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	TBitField(const TBitField& tmp) {
 		size = tmp.size;
 		mem = new uint32[size];
@@ -46,7 +55,7 @@ public:
 		}
 	}
 
-	//Оператор присваивания
+	//РћРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	TBitField& operator=(TBitField tmp) {
 		if (size != tmp.size) {
 			delete[] mem;
@@ -58,5 +67,57 @@ public:
 			mem[i] = tmp.mem[i];
 		}
 		return *this;
+	}
+
+	/* ............................................... */
+
+	void Add(int k) {
+		int i = GetNumberMem(i);
+		mem[i] = mem[i] | (1 << GetBit(k));
+	}
+
+	string ToString(int U) {
+		string str;
+
+		for (int i = 0; i < size; i++) {
+			for (int j = 4 * sizeof(*mem); j >= 0; j--) {
+				if ((mem[i] & (1 << j)) > 0) {
+					int k = i * (8 * sizeof(*mem)) + j + 1;
+
+					if (k <= U) {
+						str += (to_string(k) + " ");
+					}
+				}
+			}
+		}
+
+		return str;
+	}
+
+	TBitField operatorв€Є(const TBitField &tmp) {
+		TBitField res(size);
+
+		for (int i = 0; i < size; i++) {
+			res.mem[i] = mem[i] | tmp.mem[i];
+		}
+		return res;
+	}
+
+	TBitField operatorв€©(const TBitField& tmp) {
+		TBitField res(size);
+
+		for (int i = 0; i < size; i++) {
+			res.mem[i] = mem[i] & tmp.mem[i];
+		}
+		return res;
+	}
+
+	TBitField operator~() {
+		TBitField res(size);
+
+		for (int i = 0; i < size; i++) {
+			res.mem[i] = ~mem[i];
+		}
+		return res;
 	}
 };
