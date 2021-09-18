@@ -235,13 +235,15 @@ namespace AlgebraOfSets {
 
 		}
 #pragma endregion
-	private: System::Void txbN_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	private: System::Void txbN_KeyPress(Object^ sender, KeyPressEventArgs^ e) {
 		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar))
 		{
 			e->Handled = true;
 		}
+
+		if (e->KeyChar == 127) e->Handled = true;
 	}
-	private: System::Void txbN_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	private: System::Void txbN_KeyDown(Object^ sender, KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter)
 		{
 			bool v = !String::IsNullOrEmpty(txbN->Text) && Convert::ToInt32(txbN->Text) != 0;
@@ -249,7 +251,9 @@ namespace AlgebraOfSets {
 				SetInputsVisible(v);
 		}
 	}
-	private: System::Void txbN_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void txbN_TextChanged(Object^ sender, EventArgs^ e) {
+		txbRes->Text = "";
+
 		bool isNIncorrect = true;
 		try {
 			isNIncorrect = Convert::ToInt32(txbN->Text) == 0;
@@ -261,17 +265,19 @@ namespace AlgebraOfSets {
 			SetInputsVisible(false);
 		}
 	}
-	private: System::Void txbA_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	private: System::Void txbA_KeyPress(Object^ sender, KeyPressEventArgs^ e) {
 		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
 		{
 			e->Handled = true;
 		}
+		if (e->KeyChar == 127) e->Handled = true;
 	}
-	private: System::Void txbB_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	private: System::Void txbB_KeyPress(Object^ sender, KeyPressEventArgs^ e) {
 		if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) && e->KeyChar != ',')
 		{
 			e->Handled = true;
 		}
+		if (e->KeyChar == 127) e->Handled = true;
 	}
 
 	private: void SetupTransparency() {

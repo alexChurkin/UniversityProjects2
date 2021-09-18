@@ -12,9 +12,9 @@ private:
 	}
 
 public:
-	TSet(int U = 0, string str = "") {
-		this->USize = U;
-		tb = TBitField(U);
+	TSet(int USize = 0, string str = "") {
+		this->USize = USize;
+		tb = TBitField(USize);
 	}
 
 	TSet(const TSet& tmp) {
