@@ -86,12 +86,11 @@ namespace AlgebraOfSets {
 			// 
 			this->txbA->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(44)),
 				static_cast<System::Int32>(static_cast<System::Byte>(111)));
-			this->txbA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->txbA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->txbA->ForeColor = System::Drawing::Color::White;
-			this->txbA->Location = System::Drawing::Point(90, 163);
+			this->txbA->Location = System::Drawing::Point(90, 170);
 			this->txbA->Name = L"txbA";
-			this->txbA->Size = System::Drawing::Size(550, 48);
+			this->txbA->Size = System::Drawing::Size(763, 53);
 			this->txbA->TabIndex = 0;
 			this->txbA->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AOSForm::txbA_KeyPress);
 			// 
@@ -112,12 +111,11 @@ namespace AlgebraOfSets {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(26, 162);
+			this->label2->Location = System::Drawing::Point(25, 171);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(58, 46);
+			this->label2->Size = System::Drawing::Size(64, 52);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"A:";
 			// 
@@ -125,12 +123,11 @@ namespace AlgebraOfSets {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(26, 256);
+			this->label3->Location = System::Drawing::Point(26, 274);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(58, 46);
+			this->label3->Size = System::Drawing::Size(64, 52);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"B:";
 			// 
@@ -138,12 +135,11 @@ namespace AlgebraOfSets {
 			// 
 			this->txbB->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(44)),
 				static_cast<System::Int32>(static_cast<System::Byte>(111)));
-			this->txbB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->txbB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->txbB->ForeColor = System::Drawing::Color::White;
-			this->txbB->Location = System::Drawing::Point(90, 257);
+			this->txbB->Location = System::Drawing::Point(90, 273);
 			this->txbB->Name = L"txbB";
-			this->txbB->Size = System::Drawing::Size(550, 48);
+			this->txbB->Size = System::Drawing::Size(763, 53);
 			this->txbB->TabIndex = 4;
 			this->txbB->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &AOSForm::txbB_KeyPress);
 			// 
@@ -151,23 +147,21 @@ namespace AlgebraOfSets {
 			// 
 			this->txbRes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(44)),
 				static_cast<System::Int32>(static_cast<System::Byte>(111)));
-			this->txbRes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->txbRes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->txbRes->ForeColor = System::Drawing::Color::White;
-			this->txbRes->Location = System::Drawing::Point(253, 488);
+			this->txbRes->Location = System::Drawing::Point(34, 570);
 			this->txbRes->Name = L"txbRes";
 			this->txbRes->ReadOnly = true;
-			this->txbRes->Size = System::Drawing::Size(387, 48);
+			this->txbRes->Size = System::Drawing::Size(819, 53);
 			this->txbRes->TabIndex = 6;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->BackColor = System::Drawing::Color::Transparent;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(26, 487);
+			this->label4->Location = System::Drawing::Point(27, 513);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(221, 46);
 			this->label4->TabIndex = 5;
@@ -177,12 +171,11 @@ namespace AlgebraOfSets {
 			// 
 			this->label5->AutoSize = true;
 			this->label5->BackColor = System::Drawing::Color::Transparent;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(630, 83);
+			this->label5->Location = System::Drawing::Point(624, 85);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(83, 46);
+			this->label5->Size = System::Drawing::Size(93, 52);
 			this->label5->TabIndex = 8;
 			this->label5->Text = L"N =";
 			// 
@@ -190,13 +183,12 @@ namespace AlgebraOfSets {
 			// 
 			this->txbN->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(50)), static_cast<System::Int32>(static_cast<System::Byte>(44)),
 				static_cast<System::Int32>(static_cast<System::Byte>(111)));
-			this->txbN->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
+			this->txbN->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20));
 			this->txbN->ForeColor = System::Drawing::Color::White;
-			this->txbN->Location = System::Drawing::Point(719, 81);
+			this->txbN->Location = System::Drawing::Point(723, 84);
 			this->txbN->MaxLength = 6;
 			this->txbN->Name = L"txbN";
-			this->txbN->Size = System::Drawing::Size(130, 48);
+			this->txbN->Size = System::Drawing::Size(130, 53);
 			this->txbN->TabIndex = 7;
 			this->txbN->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			this->txbN->TextChanged += gcnew System::EventHandler(this, &AOSForm::txbN_TextChanged);
@@ -209,7 +201,7 @@ namespace AlgebraOfSets {
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(0, 0);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(878, 578);
+			this->pictureBox1->Size = System::Drawing::Size(878, 661);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 9;
 			this->pictureBox1->TabStop = false;
@@ -221,9 +213,9 @@ namespace AlgebraOfSets {
 			this->btnUnite->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnUnite.BackgroundImage")));
 			this->btnUnite->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btnUnite->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnUnite->Location = System::Drawing::Point(79, 347);
+			this->btnUnite->Location = System::Drawing::Point(126, 363);
 			this->btnUnite->Name = L"btnUnite";
-			this->btnUnite->Size = System::Drawing::Size(150, 100);
+			this->btnUnite->Size = System::Drawing::Size(170, 120);
 			this->btnUnite->TabIndex = 10;
 			this->btnUnite->UseVisualStyleBackColor = false;
 			this->btnUnite->Click += gcnew System::EventHandler(this, &AOSForm::btnUnite_Click);
@@ -235,9 +227,9 @@ namespace AlgebraOfSets {
 			this->btnIntersect->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnIntersect.BackgroundImage")));
 			this->btnIntersect->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btnIntersect->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnIntersect->Location = System::Drawing::Point(253, 347);
+			this->btnIntersect->Location = System::Drawing::Point(351, 363);
 			this->btnIntersect->Name = L"btnIntersect";
-			this->btnIntersect->Size = System::Drawing::Size(150, 100);
+			this->btnIntersect->Size = System::Drawing::Size(170, 120);
 			this->btnIntersect->TabIndex = 11;
 			this->btnIntersect->UseVisualStyleBackColor = false;
 			this->btnIntersect->Click += gcnew System::EventHandler(this, &AOSForm::btnIntersect_Click);
@@ -249,9 +241,9 @@ namespace AlgebraOfSets {
 			this->btnDeny->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnDeny.BackgroundImage")));
 			this->btnDeny->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->btnDeny->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnDeny->Location = System::Drawing::Point(427, 347);
+			this->btnDeny->Location = System::Drawing::Point(576, 363);
 			this->btnDeny->Name = L"btnDeny";
-			this->btnDeny->Size = System::Drawing::Size(150, 100);
+			this->btnDeny->Size = System::Drawing::Size(170, 120);
 			this->btnDeny->TabIndex = 12;
 			this->btnDeny->UseVisualStyleBackColor = false;
 			this->btnDeny->Click += gcnew System::EventHandler(this, &AOSForm::btnDeny_Click);
@@ -262,7 +254,7 @@ namespace AlgebraOfSets {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(878, 578);
+			this->ClientSize = System::Drawing::Size(878, 661);
 			this->Controls->Add(this->btnDeny);
 			this->Controls->Add(this->btnIntersect);
 			this->Controls->Add(this->btnUnite);
@@ -353,13 +345,13 @@ namespace AlgebraOfSets {
 		btnDeny->Visible = v;
 	}
 	private: System::Void btnUnite_Click(Object^ sender, EventArgs^ e) {
-
+		//TODO
 	}
 	private: System::Void btnIntersect_Click(Object^ sender, EventArgs^ e) {
-
+		//TODO
 	}
 	private: System::Void btnDeny_Click(Object^ sender, EventArgs^ e) {
-
+		//TODO
 	}
 };
 }
