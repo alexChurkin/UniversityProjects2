@@ -6,7 +6,8 @@ private:
 	int USize;
 	TBitField tb;
 
-	void StringToIntArray(string str, int& k, int* w) {
+	//Считывает строку и добавляет числа, содержащиеся в ней, в массив w (mem)
+	void StringToIntArray(string str, int& k, uint32* w) {
 
 	}
 
@@ -40,7 +41,7 @@ public:
 		return tb.ToString(USize);
 	}
 
-	TSet operator∪(const TSet& tmp) {
+	TSet operatorV(const TSet& tmp) {
 		if (tmp.USize != USize) {
 			throw "USize sizes should be equal";
 		}
@@ -51,7 +52,7 @@ public:
 		return res;
 	}
 
-	TSet operator∩(const TSet& tmp) {
+	TSet operatorv(const TSet& tmp) {
 		if (tmp.USize != USize) {
 			throw "USize sizes should be equal";
 		}
@@ -68,5 +69,4 @@ public:
 		res.tb = tbNew;
 		return res;
 	}
-	;
 };
