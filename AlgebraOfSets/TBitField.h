@@ -87,12 +87,14 @@ public:
 					int k = i * (8 * sizeof(*mem)) + j + 1;
 
 					if (k <= U) {
-						str += (to_string(k) + " ");
+						str += (to_string(k) + ", ");
 					}
 				}
 			}
 		}
-
+		if (str.size() >= 2) {
+			str = str.substr(0, str.size() - 2);
+		}
 		return str;
 	}
 
