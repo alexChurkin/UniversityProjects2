@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "TestExtensions.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -8,74 +9,113 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace AlgebraOfSetsTests
 {
-
-	//std::string str = " hey";
-	//Convert::ToString(str.c_str());
-
 	TEST_CLASS(TSetTester)
 	{
 	public:
 
 		TEST_METHOD(Test_Constructors) {
-			Logger::WriteMessage("Testing constructors:");
+			LogLine("Testing constructors:\n");
 
-			TSet A(12);
+			TSet A(33);
+			A.Add(1);
+			A.Add(32);
+
+			LogLine("> A(33) = {1, 32}: " + A.TSetToString());
+
 			TSet B(A);
+			B.Add(2);
+
+			LogLine("> B(A) + 2: " + B.TSetToString());
+
 			TSet C;
+			C = B;
 
-			Logger::WriteMessage("Constructors work fine!");
-		}
+			LogLine("> C = B: " + C.TSetToString());
 
-		TEST_METHOD(Test_ReadStringToTBitField) {
-			Logger::WriteMessage("Testing ReadStringToTBitField:\n\n");
+			//.......
 
-			Logger::WriteMessage("> A(12, \"11, 12\"):   ");
-			TSet A(12, "11, 12");
-			Logger::WriteMessage(A.TSetToString().c_str());
-			Logger::WriteMessage("\n");
+			Log("> D(12, \"11, 12\"):   ");
+			TSet D(12, "11, 12");
+			LogLine(A.TSetToString());
 
 
-			Logger::WriteMessage("> A(120, \",,,3 ,,, 14 18 15,19 120,     119    \"):   ");
-			TSet B(120, ",,,3 ,,, 14 18 15,19 120,     119    ");
-			Logger::WriteMessage(B.TSetToString().c_str());
-			Logger::WriteMessage("\n");
+			Log("> E(120, \",,,3 ,,, 14 18 15,19 120,     119    \"):   ");
+			TSet E(120, ",,,3 ,,, 14 18 15,19 120,     119    ");
+			LogLine(B.TSetToString());
 
-			Logger::WriteMessage("> A(100, \"1, 16, 2,100, 11\"):   ");
-			TSet C(100, "1, 16, 2,100, 11");
-			Logger::WriteMessage(C.TSetToString().c_str());
-			Logger::WriteMessage("\n\n");
+			Log("> F(100, \"1, 16, 2,100, 11\"):   ");
+			TSet F(100, "1, 16, 2,100, 11");
+			LogLine(F.TSetToString() + "\n");
 
-			Logger::WriteMessage("ReadStringToTBitField works fine!");
+			LogLine("\nConstructors work fine!");
 		}
 
 		TEST_METHOD(Test_Add) {
-			Logger::WriteMessage("Testing Add:\n");
+			LogLine("Testing Add:\n");
 
-			TSet A(9);
-			A.Add(2);
-			A.Add(5);
+			//A
+			LogLine("TSet A(68) full:");
+			TSet A(68);
+			for (int i = 1; i <= 68; i++) {
+				A.Add(i);
+			}
+			LogLine(A.TSetToString(", ") + "\n");
 
-			TSet B(A);
-			TSet C;
+			//B
+			LogLine("TSet B(67) only 1...16, 32, 64, 65:");
+			TSet B(67);
+			for (int i = 1; i <= 16; i++) {
+				B.Add(i);
+			}
+			B.Add(32);
+			B.Add(64);
+			B.Add(65);
+			LogLine(B.TSetToString(", ") + "\n");
 
-			Logger::WriteMessage("Add works fine!");
+			//C
+			LogLine("TSet C(17) only 12 and 16:");
+			TSet C(17);
+			C.Add(12);
+			C.Add(16);
+			LogLine(C.TSetToString(", ") + "\n");
+
+			LogLine("Add works fine!");
 		}
 
 		TEST_METHOD(Test_Operations) {
-			Logger::WriteMessage("Testing operations:");
+			LogLine("Testing operations:\n");
 
-			TSet A(9);
-			A.Add(2);
-			A.Add(5);
+			TSet A(33), B(33);
 
-			TSet B(A);
-			TSet C;
+			LogLine("TSet A(33), B(33)");
+			LogLine("A = {3, 9, 7}; B = {4, 3, 2, 6}\n");
 
-			Logger::WriteMessage("Operations work fine!");
+			A.Add(3);
+			A.Add(9);
+			A.Add(7);
+
+			B.Add(4);
+			B.Add(3);
+			B.Add(2);
+			B.Add(6);
+
+			LogLine("TSet C = { A U B elements }: ");
+			TSet C = A.operatorV(B);
+			LogLine(C.TSetToString(", ") + "\n");
+
+			LogLine("TBitField D = { AB elements }: ");
+			TSet D = A.operatorv(B);
+			LogLine(D.TSetToString(", ") + "\n");
+
+			LogLine("TBitField E = { ~A elements }: ");
+			TSet E = ~A;
+			LogLine(E.TSetToString(", ") + "\n");
+
+			LogLine("Operations work fine!");
 		}
 
-		TEST_METHOD(Test_StringToWords) {
-			Logger::WriteMessage("Testing StringToWords:\n");
+		TEST_METHOD(Test_StringToWordss) {
+			LogLine("Testing StringToWords:");
 
 			string str = "1, 23, 34,1    , 22";
 			string* w = new string[str.length() + 2];
@@ -84,10 +124,10 @@ namespace AlgebraOfSetsTests
 			t.StringToWords(str, ", ", k, w);
 
 			for (int i = 0; i < k; i++) {
-				Logger::WriteMessage((w[i] + "\n").c_str());
+				LogLine(w[i] + "\n");
 			}
 
-			Logger::WriteMessage("StringToWords works fine!");
+			LogLine("StringToWords works fine!");
 		}
 	};
 }

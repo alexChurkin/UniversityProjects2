@@ -348,7 +348,7 @@ namespace AlgebraOfSets {
 		ShowNormalizedInput();
 		C = A.operatorV(B);
 
-		//txbRes->Text = marshal_as<String^>(C.TSetToString(", "));
+		txbRes->Text = marshal_as<String^>(C.TSetToString(", "));
 	}
 	private: System::Void btnIntersect_Click(Object^ sender, EventArgs^ e) {
 		ReadAB_Input();

@@ -76,7 +76,7 @@ public:
 		mem[i] = mem[i] | (1 << GetBit(k));
 	}
 
-	string ToString(int U, string sep) {
+	string ToString(int U, string sep = ",") {
 		string str;
 
 		//--> Идёт по mem[i]-м элементам

@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "CppUnitTest.h"
+#include "TestExtensions.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-#include "TestExtensions.h"
 
 #define private public
 #include "../AlgebraOfSets/TBitField.h"
@@ -122,9 +122,9 @@ namespace AlgebraOfSetsTests
 		TEST_METHOD(Test_Operaions) {
 			LogLine("Testing operations:\n");
 
-			TBitField A(10), B(10);
+			TBitField A(33), B(33);
 
-			LogLine("TBitField A(10), B(10)");
+			LogLine("TBitField A(33), B(33)");
 			LogLine("A = {3, 9, 7}; B = {4, 3, 2, 6}\n");
 
 			A.Add(3);

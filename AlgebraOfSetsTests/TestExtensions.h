@@ -1,14 +1,8 @@
 #pragma once
 #include <string>
-#include "CppUnitTest.h"
 
 using namespace std;
-using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-void Log(string str) {
-	Logger::WriteMessage(str.c_str());
-}
+void Log(string str);
 
-void LogLine(string str) {
-	Log(str + "\n");
-}
+void LogLine(string str);
