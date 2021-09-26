@@ -107,8 +107,6 @@ public:
 		if (tmp.USize != USize) {
 			throw "USize should be equal";
 		}
-		//ERROR! THIS TBitField shoudn't be created here.
-		//It's destroying after leaving this method
 		TBitField tbNew = tb.operatorV(tmp.tb);
 
 		TSet res(USize, tbNew);
