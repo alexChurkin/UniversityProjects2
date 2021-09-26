@@ -32,7 +32,7 @@ private:
 	}
 
 public:
-	//Конструктор
+	//Конструктор (принимает размер USize, а не кол-во mem-ов!)
 	TBitField(int n = 0) {
 		size = n / (8 * sizeof(*mem)) + 1;
 		mem = new uint32[size];
@@ -99,7 +99,8 @@ public:
 	}
 
 	TBitField operatorV(const TBitField& tmp) {
-		TBitField res(size);
+		//size должен снова стать n, чтобы всё работало верно!
+		TBitField res((8 * sizeof(*mem)) * (size - 1));
 
 		for (int i = 0; i < size; i++) {
 			res.mem[i] = mem[i] | tmp.mem[i];
@@ -108,7 +109,7 @@ public:
 	}
 
 	TBitField operatorv(const TBitField& tmp) {
-		TBitField res(size);
+		TBitField res((8 * sizeof(*mem)) * (size - 1));
 
 		for (int i = 0; i < size; i++) {
 			res.mem[i] = mem[i] & tmp.mem[i];
@@ -117,7 +118,7 @@ public:
 	}
 
 	TBitField operator~() {
-		TBitField res(size);
+		TBitField res((8 * sizeof(*mem)) * (size - 1));
 
 		for (int i = 0; i < size; i++) {
 			res.mem[i] = ~mem[i];
