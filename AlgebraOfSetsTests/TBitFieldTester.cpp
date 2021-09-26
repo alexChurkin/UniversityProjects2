@@ -136,15 +136,15 @@ namespace AlgebraOfSetsTests
 			B.Add(2);
 			B.Add(6);
 
-			LogLine("TBitField C = { A U B elements}: ");
+			LogLine("TBitField C = { A U B elements }: ");
 			TBitField C = A.operatorV(B);
 			LogLine(C.ToString(10) + "\n");
 
-			LogLine("TBitField D = { AB elements}: ");
+			LogLine("TBitField D = { AB elements }: ");
 			TBitField D = A.operatorv(B);
 			LogLine(D.ToString(10) + "\n");
 
-			LogLine("TBitField E = { ~A elements}: ");
+			LogLine("TBitField E = { ~A elements }: ");
 			TBitField E = ~A;
 			LogLine(E.ToString(10) + "\n");
 

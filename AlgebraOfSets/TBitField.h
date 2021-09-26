@@ -76,7 +76,7 @@ public:
 		mem[i] = mem[i] | (1 << GetBit(k));
 	}
 
-	string ToString(int U) {
+	string ToString(int U, string sep) {
 		string str;
 
 		//--> Идёт по mem[i]-м элементам
@@ -87,13 +87,13 @@ public:
 					int k = i * (8 * sizeof(*mem)) + j + 1;
 
 					if (k <= U) {
-						str += (to_string(k) + ", ");
+						str += (to_string(k) + sep);
 					}
 				}
 			}
 		}
 		if (str.size() >= 2) {
-			str = str.substr(0, str.size() - 2);
+			str = str.substr(0, str.size() - sep.length());
 		}
 		return str;
 	}

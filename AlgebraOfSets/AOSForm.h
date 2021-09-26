@@ -344,24 +344,28 @@ namespace AlgebraOfSets {
 		btnDeny->Visible = v;
 	}
 	private: System::Void btnUnite_Click(Object^ sender, EventArgs^ e) {
-		GetInput();
+		ReadAB_Input();
+		ShowNormalizedInput();
 		C = A.operatorV(B);
-		txbRes->Text = Convert::ToString(C.TSetToString().c_str());
+
+		//txbRes->Text = marshal_as<String^>(C.TSetToString(", "));
 	}
 	private: System::Void btnIntersect_Click(Object^ sender, EventArgs^ e) {
-		GetInput();
+		ReadAB_Input();
+		ShowNormalizedInput();
 		C = A.operatorv(B);
-		txbRes->Text = Convert::ToString(C.TSetToString().c_str());
+		txbRes->Text = marshal_as<String^>(C.TSetToString(", "));
 	}
 	private: System::Void btnDeny_Click(Object^ sender, EventArgs^ e) {
-		GetInput();
+		ReadAB_Input();
+		ShowNormalizedInput();
 		TSet notA = ~A;
 		TSet notB = ~B;
-		C = notA.operatorV(notB);
-		txbRes->Text = Convert::ToString(C.TSetToString().c_str());
+		C = notA.operatorv(notB);
+		txbRes->Text = marshal_as<String^>(C.TSetToString(", "));
 	}
 
-	private: void GetInput() {
+	private: void ReadAB_Input() {
 		//—читывание размера универса, а также A и B из полей ввода
 		int USize;
 		try {
@@ -374,10 +378,13 @@ namespace AlgebraOfSets {
 		string aText = marshal_as<std::string>(txbA->Text);
 		string bText = marshal_as<std::string>(txbB->Text);
 
-		A = TSet(USize, "");
-		A.Add(10);
-		B = TSet(USize, "");
-		B.Add(15);
+		A = TSet(USize, aText);
+		B = TSet(USize, bText);
 	}
-};
+
+	private: void ShowNormalizedInput() {
+		txbA->Text = marshal_as<String^>(A.TSetToString());
+		txbB->Text = marshal_as<String^>(B.TSetToString());
+	}
+	};
 }
