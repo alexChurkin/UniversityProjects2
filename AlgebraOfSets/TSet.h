@@ -78,14 +78,10 @@ public:
 		tb = tmp.tb;
 	}
 
-	//Конструктор приведения типа (свой)
-	TSet(int USize, const TBitField& tb) {
-		this->USize = USize;
-		this->tb = tb;
-	}
-
 	TSet& operator=(const TSet& tmp) {
-		USize = tmp.USize;
+		if (USize != tmp.USize) {
+			USize = tmp.USize;
+		}
 		tb = tmp.tb;
 		return *this;
 	}
@@ -96,7 +92,9 @@ public:
 	/* ............................................... */
 
 	void Add(int k) {
-		tb.Add(k);
+		if (k >= 0 && k <= USize) {
+			tb.Add(k);
+		}
 	}
 
 	string TSetToString(string sep = ",") {
@@ -107,9 +105,9 @@ public:
 		if (tmp.USize != USize) {
 			throw "USize should be equal";
 		}
-		TBitField tbNew = tb.operatorV(tmp.tb);
 
-		TSet res(USize, tbNew);
+		TSet res(USize);
+		res.tb = tb.operatorV(tmp.tb);
 		return res;
 	}
 
@@ -117,16 +115,15 @@ public:
 		if (tmp.USize != USize) {
 			throw "USize should be equal";
 		}
-		TBitField tbNew = tb.operatorv(tmp.tb);
 
-		TSet res(USize, tbNew);
+		TSet res(USize);
+		res.tb = tb.operatorv(tmp.tb);
 		return res;
 	}
 
 	TSet operator~() {
-		TBitField tbNew = tb.operator~();
-
-		TSet res(USize, tbNew);
+		TSet res(USize);
+		res.tb = tb.operator~();
 		return res;
 	}
 };
